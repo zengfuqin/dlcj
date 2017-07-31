@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+		.color{
+			color: #f95;
+		}
+		#code{
+			width: 90px;
+			height: 30px;
+			border: 1px solid #eee;
+		}
+		input{
+			/*width: 200px;*/
+			height: 30px;
+			border: 1px solid #eee;
+		}
+		.star{
+			color: #f00;
+		}
+		select{
+			width: 200px;
+			height: 30px;
+			border: 1px solid #00f;
+		}
+		a{
+			text-decoration: none;
+			color: #00f;
+		}
+		</style>
+	</head>
+	<body>
+		<form action="">
+			<table border="0">
+				<tr>
+					<td align="right"><span class="star">*</span>用户名：</td>
+					<td><input type="text" name="user"></td>
+					<td class="color">由字母，数字或者”_“，长度不少于<位，不多于位</td>
+				</tr>
+				<tr>
+					<td align="right"><span class="star">*</span>密码：</td>
+					<td><input type="password" name="pwd"></td>
+					<td class="color">不少于6位字符</td>
+				</tr>
+				<tr>
+					<td align="right"><span class="star">*</span>安全级别：</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td align="right"><span class="star">*</span>密码确认：</td>
+					<td><input type="password" name="repwd"></td>
+					<td class="color">请再次输入密码</td>
+				</tr>
+				<tr>
+					<td align="right"><span class="star">*</span>语音查询密码：</td>
+					<td><input type="password" name="yuyinpwd"></td>
+					<td class="color">语音查询密码为6位数字</td>
+				</tr>
+				<tr>
+					<td align="right"><span class="star">*</span>语音查询密码确认：</td>
+					<td><input type="password" name="yuyinpwd"></td>
+					<td class="color">请再次输入语音查询密码</td>
+				</tr>
+				<tr>
+					<td align="right"><span class="star">*</span>密码保护问题：</td>
+					<td>
+						<select name="wenti[]" id="">
+							<option value="0"  >请选择密码提示问题</option>
+							<option value="1" >你的生日</option>
+							<option value="2" >你的母亲的姓名</option>
+							<option value="3" > 提示问题</option>
+						</select>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td align="right" ><span class="star">*</span>验证码：</td>
+					<td colspan="2">
+						<table >
+							<tr>
+								<td ><div id="code"></div></td>
+								<td><img src="./images/gouwulan.png" alt=""></td>
+								<td><img src="./images/search.png" alt=""></td>
+							</tr>
+						</table>
+					</td>
+					<!-- <td></td> -->
+				</tr>
+				<tr>
+					<td align="right"><input type="checkbox" name="" id="" ></td>
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>我已阅读并同意遵守</td>
+								<td><a href="">《中国铁路客服服务中心服务》</a></td>
+							</tr>
+
+						</table>
+					</td>
+					<!-- <td></td> -->
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
