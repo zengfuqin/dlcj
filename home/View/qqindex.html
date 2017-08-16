@@ -1,0 +1,167 @@
+<html>
+	<head>
+		<title>第一个网页</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="./css/nav_foot.css" /> 
+		<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		a{
+			text-decoration: none;
+		}
+		ul{
+			list-style: none;
+		}
+		
+		#tupian{
+			width: 100%;
+			overflow: hidden;
+			margin:0 auto;
+			/*height: 300px;*/
+			/*background: #fee;*/
+		}
+		#main{
+			width: 1000px;
+			/*height: 500px;*/
+			overflow: hidden;
+			/*background: yellow;*/
+			margin: 0 auto;
+		}
+		#main .about_box{
+			width: 1000px;
+			height: 102px;
+			margin-top: 100px;
+			/*background: red;*/
+			margin:0  auto;
+		}
+		#main .about_box .about{
+			width: 450px;
+			height: 102px;
+			/*background: purple;*/
+			float: left;
+		}
+		#main .about_box .about .content_img{
+			float: left;
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			border-radius: 100%;
+		}
+		#main .about_box .about  .content_text{
+			width: 330px;
+			height: 84px;
+			float: left;
+			margin-left: 18px;
+			color: #333;
+			font-size: 12px;
+			margin-top: 10px;
+		}
+		#main .about_box .about  .content_text .span_title{
+			display: block;
+			font-size: 16px;
+			color: #333;
+		}
+		#main .about_box .about a:hover  .content_text{
+			color: #10a9eb;
+		}
+		#main .about_box .about a:hover  .content_text .span_title{
+			color: #10a9eb;
+		}
+		#main .about_box .about a:hover  .content_img{
+			border: 1px solid #10a9eb;
+		}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="logo_box">
+				<div id="logo">
+					<div id="logo_left"></div>
+					<div id="logo_right">
+						<div id="logo_right_top">
+							<a href="">设为首页</a>
+							|
+							<a href="">加入收藏</a>
+						</div>
+						<div id="logo_right_bottom">
+							<input type="text" placeholder="请输入关键字……" id="search">
+							<input type="submit" value="搜索" id="btn">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="nav_box">
+			<nav>
+				<ul>
+					<li><a href="index.html">网站首页</a></li>
+					<li><a href="about.html">关于诚技</a></li>
+					<li><a href="news.html">新闻资讯</a></li>
+					<li><a href="product.html">产品中心</a></li>
+					<li><a href="case.html">成功案例</a></li>
+					<li><a href="job.html">人才招聘</a></li>
+					<li><a href="contact.html">联系我们</a></li>
+				</ul>
+			</nav>
+			</div>
+		</header>
+		<section id="tupian"><img src="./images/banner2.jpg" alt="" width="100%" ></section>
+		<section id="main">
+			<div class="about_box" style="margin-top:58px">
+				<div class="about" style="margin-right:100px">
+					<a href="">
+						<img src="./images/index1.png" alt="" class="content_img">
+						<span class="content_text">
+							<span class="span_title">关于诚技</span>
+							大连诚技机电设备有限公司始创于2002年，始终本着“诚以为人，技以为业”的经营和服务理念，全心全力致力于国内外锻造和冲压压力机的维修...
+						</span>
+					</a>
+				</div>
+				<div class="about">
+					<a href="">
+						<img src="./images/index2.jpg" alt="" class="content_img">
+						<span class="content_text">
+							<span class="span_title">产品中心</span>
+							公司现主要产品有液压润滑站、换向阀、过载保护阀。大修改造主要包括机械压力机大修改造与搬迁、自动化设计改造、压力机备件、平锻机制造及维修等，并代理日本SR产品。
+						</span>
+					</a>
+				</div>
+			</div>
+			<div class="about_box" style="margin-top:58px;margin-bottom:58px" >
+				<div class="about" style="margin-right:100px">
+					<a href="">
+						<img src="./images/index3.jpg" alt="" class="content_img">
+						<span class="content_text">
+							<span class="span_title">相关知识</span>
+							冲压自动化系统是专为压力机生产线的冲压自动化而设计的，可以在大幅度减少压力机操作人员状况下成倍地提高冲压工件产量，并解决了大型工件无法安全上、下料的难题。
+						</span>
+					</a>
+				</div>
+				<div class="about">
+					<a href="">
+						<img src="./images/ewm.png" alt="" class="content_img">
+						<span class="content_text">
+							<span class="span_title">联系我们</span>
+							联系人：高小姐<br/>
+							电话：0411-62634264  传真：0411-62634263<br/>
+							辽宁省大连市开发区东北七街上品公馆18A1108
+						</span>
+					</a>
+				</div>
+			</div>
+		</section>
+		<footer>
+		<p>
+			<a href="">关于诚技</a> |
+			<a href="">新闻资讯 </a>|
+			<a href="">产品中心 </a>|
+			<a href="">成功案例 </a>|
+			<a href="">人才招聘 </a>|
+			<a href=""> 联系我们</a><br/>
+			Copyright © 大连诚技机电设备有限公司 版权所有 辽ICP备13015234号-2<br/>
+			网站设计：仟亿科技
+		</p>
+	</footer>
+	</body>
+</html>
