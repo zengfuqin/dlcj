@@ -1,10 +1,11 @@
 <?php
 // header("content-type:text/html;charset=utf-8");
+include(realpath(__DIR__.'/config.php') );//绝对路径，多层次加载使用绝对路径比较好
 class Db{
 	protected $conn;//成员属性
 	public function __construct(){//构造函数：在new的时候，就自动运行
-		$this->conn=mysqli_connect('127.0.0.1','root','root');//登入服务器
-		mysqli_select_db($this->conn,'dlcj');//选择数据库
+		$this->conn=mysqli_connect(HOST,USER,PWD);//登入服务器
+		mysqli_select_db($this->conn,DB);//选择数据库
 		mysqli_query($this->conn,'set names utf8');//防止乱码
 	}
 	/*
@@ -19,6 +20,7 @@ class Db{
 	}
 	//选取多条记录
 	public function selectRows($sql){
+		$rows=array();
 		$res=mysqli_query($this->conn,$sql);
 		while($row=mysqli_fetch_assoc($res)) { 
 			$rows[]=$row;

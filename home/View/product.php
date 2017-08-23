@@ -132,25 +132,24 @@
 	section article #yeshu_box .yeshu{
 		background: #f3f3f3;
 		padding: 6px 8px;
+		margin: 3px;
 		color: #666;
 		font-size: 14px;
 	}
-	section article #yeshu_box .shuzi{
-		background: #0fa9eb;
-		padding: 6px 8px;
-		color: #fff;
-		font-size: 14px;
-	}
-	section article #yeshu_box .shuzi_2 a{
+	section article #yeshu_box .shuzi_1{
 		background: #f3f3f3;
 		padding: 6px 8px;
-		color: #0fa9eb;
+		margin: 3px;
+		color: #333;
+		font-size: 14px;
+	}
+	section article #yeshu_box .shuzi_2 {
+		background: #0fa9eb;
+		padding: 6px 8px;
+		margin: 3px;
+		color: #fff;
 		font-size: 14px;
 		text-decoration: none;
-	}
-	section article #yeshu_box .shuzi_2 a:hover{
-		border:2px solid #ddd;
-		padding: 4px 6px;
 	}
 
 	</style>
@@ -197,23 +196,22 @@
 		$str.='<aside>
 			<div id="title"><span>产品中心</span</div>
 			<div class="cont">
-				<a href="./product.php?type=主要产品&typeid=1"> > 主要产品</a>
+				<a href="./product.php?type=主要产品"> > 主要产品</a>
 			</div>
 			<div class="cont">
-				<a href="./product.php?type=大修改造&typeid=2"> > 大修改造</a>
+				<a href="./product.php?type=大修改造"> > 大修改造</a>
 			</div>
 			<div class="cont">
-				<a href="./product.php?type=代理产品&typeid=3"> > 代理产品</a>
+				<a href="./product.php?type=代理产品"> > 代理产品</a>
 			</div>
 		</aside>';
 		$str.='<article>';
 			$str.='<div id="text">'.$type.'</div>';
 			$str.='<div id="pro_main">';
-
-				foreach ($res as  $row) {
+				foreach ($rows as  $row) {
 					$str.='<ul>';
 						$str.='<li >
-							<a href="./product_detail.php?type='.$type.'&cnttitle='.$row['cnttitle'].'">
+							<a href="./product_detail.php?type='.$row['type'].'&id='.$row['id'].'">
 								<span>'.$row['titleImg'].'</span>
 								<span class="pro_text">'.$row['cnttitle'].'</span>
 							</a>
@@ -222,14 +220,12 @@
 				}
 			
 			$str.='</div>';
+			$str.='<div id="yeshu_box">';
+			
+				$str.=$link;
+			$str.='</div>';
 		echo $str;
-	?>
-			<div id="yeshu_box">
-				<span class="yeshu">上一页</span>
-				<span class="shuzi">1</span>
-				<span class="shuzi_2"><a href="">2</a></span>
-				<span class="yeshu">上一页</span>
-			</div>
+		?>
 		</article>
 
 		

@@ -78,6 +78,8 @@
 	}
 	section article{
 		width: 780px;
+		/*background: yellow;*/
+		/*height: 200px;*/
 		overflow: hidden;
 		float: right;
 		padding: 10px 0;
@@ -97,20 +99,6 @@
 		/*background: yellow;*/
 
 	}
-	section article #pro_main ul li{
-		float: left;
-		margin-right: 12px;
-		padding-bottom: 10px;
-	}
-	section article #pro_main ul  .pro_li{
-		float: left;
-		margin-right: 0px;
-	}
-	
-	section article #pro_main ul li a:hover .pro_text{
-		color: #6fcbf3;
-	}
-	
 	section article #pro_main .pro_text{
 		display: block;
 		padding-top: 15px;
@@ -118,34 +106,6 @@
 		text-align: center;
 		font-size: 14px;
 		color: #333;
-	}
-	section article #yeshu_box{
-		width: 780px;
-		text-align: center;
-		margin-bottom: 18px;
-	}
-	section article #yeshu_box .yeshu{
-		background: #f3f3f3;
-		padding: 6px 8px;
-		color: #666;
-		font-size: 14px;
-	}
-	section article #yeshu_box .shuzi{
-		background: #0fa9eb;
-		padding: 6px 8px;
-		color: #fff;
-		font-size: 14px;
-	}
-	section article #yeshu_box .shuzi_2 a{
-		background: #f3f3f3;
-		padding: 6px 8px;
-		color: #0fa9eb;
-		font-size: 14px;
-		text-decoration: none;
-	}
-	section article #yeshu_box .shuzi_2 a:hover{
-		border:2px solid #ddd;
-		padding: 4px 6px;
 	}
 	h1{
 		color: #0fa9eb;
@@ -178,13 +138,13 @@
 		<div id="nav_box">
 			<nav>
 				<ul>
-					<li><a href="index.html">网站首页</a></li>
-					<li><a href="about.html">关于诚技</a></li>
-					<li><a href="news.html">新闻资讯</a></li>
-					<li><a href="product.html">产品中心</a></li>
-					<li><a href="case.html">成功案例</a></li>
-					<li><a href="job.html">人才招聘</a></li>
-					<li><a href="contact.html">联系我们</a></li>
+					<li><a href="index.php">网站首页</a></li>
+					<li><a href="about.php">关于诚技</a></li>
+					<li><a href="news.php">新闻资讯</a></li>
+					<li><a href="product.php">产品中心</a></li>
+					<li><a href="case.php">成功案例</a></li>
+					<li><a href="job.php">人才招聘</a></li>
+					<li><a href="contact.php">联系我们</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -210,20 +170,14 @@
 		$str='';
 		$str.='<article>';
 			$str.='<div id="text">'.$type.'</div>';
+			$str.=$link;
 			$str.='<div id="pro_main">';
 				$str.='<h1>'.$detail['cnttitle'].'</h1>';
 				$str.='<div class="detail">'.$detail['cnt'].'</div>';
 			$str.='</div>';
+		$str.='</article>';
 		echo $str;
 		?>
-			<div id="yeshu_box">
-				<span class="yeshu">上一页</span>
-				<span class="shuzi">1</span>
-				<span class="shuzi_2"><a href="">2</a></span>
-				<span class="yeshu">上一页</span>
-			</div>
-		</article>
-		
 	</section>
 	<footer>
 		<p>

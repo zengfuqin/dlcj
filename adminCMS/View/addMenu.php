@@ -48,6 +48,7 @@ include('./link.php');
 	</table>
 </form>
       </div>
+      <script></script>
 <!---addmenu---->
 
   	<!--------------------------------->  

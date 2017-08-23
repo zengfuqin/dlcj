@@ -3,17 +3,14 @@
 include("../Model/Db.class.php");
 include("../Controller/product.class.php");
 $db=new Db();
-$p=new Product($db);
-$type=$p->checkType();
-$res=$p->listDate();
-if(isset($_GET['cnttitle'])){
+$tab='product';
+$p=new Product($db,$tab);
+$type=$p->checkType();//产品类型
+$rows=$p->getPage();
+$link=$p->makeNumPageLinks();
+if(isset($_GET['id'])){//获取详情页
+	 $p->getIndexById();
+	$link=$p->makeLinks();//生成链接
 	$detail=$p->getDetailDate();
 }
-// $a=$p->getDateAll();
-// $t=$p->getTree($a,1,0);
-// echo "<pre>";
-// print_r($t);
-// echo $type;
-// print_r($detail);
-// echo "<br>";
-// var_dump($detail);
+

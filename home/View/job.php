@@ -142,10 +142,10 @@
 	</style>
 </head>
 <body>
-<header>
-			<div id="logo_box">
-				<div id="logo">
-					<div id="logo_left"></div>
+	<header>
+		<div id="logo_box">
+			<div id="logo">
+				<div id="logo_left"></div>
 					<div id="logo_right">
 						<div id="logo_right_top">
 							<a href="">设为首页</a>
@@ -159,7 +159,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="nav_box">
+		<div id="nav_box">
 			<nav>
 				<ul>
 					<li><a href="index.html">网站首页</a></li>
@@ -171,8 +171,8 @@
 					<li><a href="contact.html">联系我们</a></li>
 				</ul>
 			</nav>
-			</div>
-		</header>
+		</div>
+	</header>
 	<div id="images"></div>
 	<section>
 		<aside>
@@ -189,34 +189,19 @@
 		<article>
 			<div id="text">招聘位置</div>
 			<?php
-			header("content-type:text/html;charset=utf-8");
-			class Jobs{
-				public function makeLink($job){
+			include("../Api/jobApi.php");
+			
 					$str='';
 					$str.='<ul>';
 					foreach ($job as $row) {
-						$str.='<li><a href="../Api/jobdetail.php?id='.$row[0].'">';
-						$str.=$row[1];
+						$str.='<li><a href="../Api/jobdetail.php?id='.$row['id'].'">';
+						$str.=$row['position'];
 						$str.='<span>应聘职位</span>';
 						$str.='</a></li>';
 					}
 					$str.='</ul>';
-					return $str;
-				}
-			}
-			$a=new Jobs();
-			$job=array(
-				[1,'机械工程师'],
-				[2,'机械设计主管'],
-				[3,'电气自动化工程师管'],
-				[4,'电气自动化设计师'],
-				[5,'液压工程师'],
-				[6,'液压钳工'],
-				[7,'招聘电工'],
-				[8,'装配钳工']
-				);
-			$res=$a->makeLink($job);
-			echo $res;
+					echo  $str;
+			
 			?>
 			<div id="yeshu_box">
 				<span class="yeshu">上一页</span>

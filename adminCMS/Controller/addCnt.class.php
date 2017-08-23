@@ -9,8 +9,8 @@ class Cnt{
 	public $titleImg;
 	public function __construct($db){
 		$this->db=$db;
-		$this->getFormDate();
 	}
+	//检验表单
 	public function getFormDate(){
 		$this->sel_lanmu=$_POST['sel_lanmu'];
 		$this->title=$_POST['title'];
@@ -18,20 +18,26 @@ class Cnt{
 		$this->titleImg=$_POST['titleImg'];
 
 	}
+	//插入数据到数据库
 	public function addCnt(){
+		$this->getFormDate();
+		if (empty($this->title)) {return array('code'=>0,'msg'=>'文章标题不能为空！');exit;}
+		if (empty($this->content)) {return array('code'=>1,'msg'=>'文章内容不能为空！');exit;}
 		$sql="insert into product(type,cnttitle,cnt,titleImg) values('{$this->sel_lanmu}','{$this->title}','{$this->content}','{$this->titleImg}')";
-		return $this->db->otherData($sql);
+		if ($this->db->otherData($sql)>0) {
+			 return array('code'=>3,'msg'=>'添加内容成功！');exit;
+		 } else{
+			 return array('code'=>4,'msg'=>'添加内容失败！');exit;
+		 }
 	}
-	 public function getParents($array,$id){
-			$parents=array();
-			foreach ($array as $row) {
-				if ($row['id']==$id) {//查找的开始位置
-					$parents[]=$row;
-					if ($row['pid']>0) {//查询的终止条件
-						$parents=array_merge($parents,getParents($array,$row['pid']));//传递的是父id
-					}
-				}
-			}
-			return $parents;
-		}
+	//获取全部菜单
+	public function getMenu(){
+		$sql="select * from adminAddMenu";
+		return $this->db->selectRows($sql);
+	}
+	//获取全部数据从product
+	public function getCnt(){
+		$sql="select * from product";
+		return $this->db->selectRows($sql);
+	}
 }

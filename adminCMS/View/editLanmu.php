@@ -22,23 +22,30 @@ include('./link.php');
     <!----------------------->
     <div id="updata_lanmu"><!--管理栏目-->
       	<div class="title">栏目设置---&gt;管理栏目</div>
-<form action="{:U('Lanmu/saveLanmu',array('id'=>$row['id']))}" method="get">
+<form action="../Api/ediLanmuApi.php?" method="get">
 	<table width="803" border="0" cellspacing="0" cellpadding="0">
 		
 		<tr>
 		  <td>操作</td>
 		  <td>栏目编号</td>
-		  <td>所属菜单</td>
 		  <td>栏目名称</td>
+		  <a href=""></a>
 		</tr>
-
-			<tr>
-				<td width="113"><input type="submit" name="btn" id="btn" class="btn" value="保存信息" /></td>
-				<td width="95">{$row['id']}</td>
-				<td width="266">{$row['fname']}</td>
-				<td width="330"><input type="text" name="name" value="{$row['name']}" style="width:120px;text-align:center;"/></td>
-			 </tr>
-
+		<?php
+		include("../Api/ediLanmuApi.php");
+		$str='';
+		foreach ($res as $row) {
+			$str.='<tr>
+				<td width="113">
+					<a href="../View/upLanmu.php?id='.$row['id'].'">编辑</a>
+				 	<a href="../Api/ediLanmuApi.php?act=delete&id='.$row['id'].'">删除</a>
+				 </td>
+				<td width="95" >'.$row['id'].'</td>
+				<td width="266">'.$row['name'].'</td>
+			 </tr>';
+		}
+		echo $str;
+		?>
 		<!---tr>
 		  <td><input type="button" name="btn" id="btn" class="btn" value="更新信息" /></td>
 		  <td>2</td>

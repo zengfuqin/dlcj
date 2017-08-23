@@ -22,7 +22,7 @@ include('./link.php');
     <!----------------------->
     <div id="updata_lanmu"><!--管理栏目-->
       	<div class="title">栏目设置---&gt;管理栏目</div>
-<form action="" method="post">
+<form action="../Api/upLanmuApi.php?act=update" method="post">
 	<table width="803" border="0" cellspacing="0" cellpadding="0">
 		
 		<tr>
@@ -32,11 +32,31 @@ include('./link.php');
 		  <td>栏目名称</td>
 		</tr>
 		<volist name="rows" id='row'>
+		<?php
+		 include("../Api/upLanmuApi.php"); 
+		?>
+		
 			<tr>
-				<td width="113"><a href="{:U('Lanmu/editLanmu',array('id'=>$row['id']))}" class="btn" >更新信息</a></td>
-				<td width="95">{$row['id']}</td>
-				<td width="266">{$row['fname']}</td>
-				<td width="330">{$row['name']}</td>
+				<td width="113"><input type="submit" name="btn" id="btn" class="btn" value="更新信息" /></td>
+				<td width="95"><?php echo $row['id']; ?>
+					<input type="hidden" name="id" id="btn" class="btn" value="<?php echo $row['id']; ?>" />
+				</td>
+				<td width="266">
+					 <select name="menuID">';
+					<?php
+					$str='';
+					foreach ($tree as $val) {
+						if ($row['fid']==$val['id']) {
+							$str.='<option selected="selected" value="'.$val['id'].'">'.$val['html'].$val['name'].'</option>';
+						}elseif($row['id']!=$val['id']){
+						$str.='<option value="'.$val['id'].'">'.$val['html'].$val['name'].'</option>';
+						}
+					}
+					echo $str;
+					?>
+		  </select>
+				</td>
+				<td width="330"><input type="text" name="name"  value="<?php echo $row['name'] ?>" /></td>
 			 </tr>
 		 </volist>
 		<!---tr>
@@ -70,7 +90,7 @@ include('./link.php');
     <!--------------------------------->  
   	</div>
   	<!--menu-->
-  	{$href}
+  	<!-- {$href} -->
   </div><!---cnt---->
 </div><!--list-->
   <?php

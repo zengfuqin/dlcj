@@ -33,13 +33,29 @@ include('./link.php');
 		  <td>主要内容</td>
 		</tr>
 		<volist name="rows" id='row'>
-			<tr>
-				<td style="width:110px;"><a href="{:U('Cnt/editCnt',array('id'=>$row['id']))}" class="btn" style="width:50px;float:left;">更新</a><a href="{:U('Cnt/delCnt',array('id'=>$row['id']))}" class="btn"style="width:50px;float:left;" >删除</a></td>
-				<td style="width:100px;">{$row['id']}</td>
-				<td style="width:100px;">{$row['lanmuname']}</td>
-				<td style="width:100px;">{$row['time']|date='Y-m-d',###}</td>
-				<td width="330" align="left">{$row['cnt']|htmlspecialchars_decode|strip_tags|mb_substr=###,0,50,'utf8'}...</td>
-			 </tr>
+		<?php
+		include("../Api/upCntApi.php");
+		$str='';
+		foreach ($res as $row) {
+			if (isset($row['cnt'])) {
+					$cnt=strip_tags($row['cnt']);
+					$cntleng=strlen($cnt);
+					if ($cntleng>100) {
+						$cnts=mb_substr($cnt, 0,100,'utf-8').'...';
+					}else{
+						$cnts=$row['cnt'];
+					}
+				}
+			$str.='<tr>
+				<td style="width:110px;"><a href="./editCnt.php?id=" class="btn" style="width:50px;float:left;">更新</a><a href="" class="btn"style="width:50px;float:left;" >删除</a></td>
+				<td style="width:100px;">'.$row['id'].'</td>
+				<td style="width:100px;">'.$row['type'].'</td>
+				<td style="width:100px;">'.time().'</td>
+				<td width="330" align="left">'.str_replace('&nbsp;', '',$cnts).'</td>
+			 </tr>';
+			 echo $str;
+		}
+		?>
 		 </volist>
 		<!---tr>
 		  <td><input type="button" name="btn" id="btn" class="btn" value="更新信息" /></td>
@@ -72,7 +88,7 @@ include('./link.php');
     <!--------------------------------->  
   	</div>
   	<!--menu-->
-  	{$href}
+  	
   </div><!---cnt---->
 </div><!--list-->
   <?php

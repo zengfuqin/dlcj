@@ -30,22 +30,23 @@ include('./link.php');
 <div id="add_menu"><!----add_menu---->
       	<div class="title">文章设置---&gt;添加文章</div>
       <div id="edit_cnt"><!----edit_cnt---->
+
       
-<form action="../Api/addCntApi.php" method="post">      
+<form action="../Api/addCntApi.php?act=update" method="post">      
 	<table width="470" border="0" cellspacing="0" cellpadding="0">
-		
 		<tr>
 		  <td width="86" class="align_r">所属栏目:</td>
-		  <td width="716" class="align_l">
-		  <?php
-		  $str='';
-		      $str.='<select name="sel_lanmu">	   	
-		        	<option value="代理产品">代理产品</option>
-		        	<option value="主要产品">主要产品</option>	
-		        	<option value="大修改造">大修改造</option>		        
-		      </select>';
-		      echo $str;
-		      ?>
+		  <td width="716" class="align_l">	
+			<select name="sel_lanmu">
+			<?php
+			  include("../Api/addCntApi.php");
+			$str='';
+		 	 foreach ($tree as $val) {
+		         		$str.='<option value="'.$val['name'].'">'.$val['html'].$val['name'].'</option>';	
+		  	 }   	
+			   echo $str;
+			 ?>	        
+			</select>
 		  </td>
 		</tr>
 		<tr>

@@ -7,7 +7,7 @@
     <div class="lanmu">栏目设置</div>
     <ul class="ul">
     	<li><a href="./addLanmu.php">添加栏目</a></li>
-        <li><a href="./upLanmu.php">管理栏目</a></li>
+        <li><a href="./editLanmu.php">管理栏目</a></li>
     </ul-->
     <div class="lanmu">文章设置</div>
     <ul class="ul">

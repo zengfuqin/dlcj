@@ -4,6 +4,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="./css/css.css" rel="stylesheet" type="text/css" />
+<style>
+#yeshu_box{
+margin-top: 30px;
+margin-left: 300px;
+}
+ #yeshu_box .yeshu{
+    background: #f3f3f3;
+    padding: 6px 8px;
+    margin: 3px;
+    color: #666;
+    font-size: 14px;
+  }
+ #yeshu_box .shuzi_1{
+    background: #f3f3f3;
+    padding: 6px 8px;
+    margin: 3px;
+    color: #333;
+    font-size: 14px;
+  }
+ #yeshu_box .shuzi_2 {
+    background: #0fa9eb;
+    padding: 6px 8px;
+    margin: 3px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+  }
+</style>
 <script type="text/javascript" src="./js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="./js/company.js"></script>
 </head>
@@ -44,40 +72,13 @@ include('./link.php');
 				<td width="330">'.$row['url'].'</td>
 			</tr>';	
               }
+               $td.='</volist>
+            </table>';
+            $td.='<div id="yeshu_box">';
+            $td.=$link;
+            $td.= '</div>';
               echo $td;
-      ?>	
-    </volist>
-  <!---tr>
-    <td width="113"><input type="button" name="btn" id="btn" class="btn" value="更新信息" /></td>
-    <td width="95">1</td>
-    <td width="266"><input type="text" name="zhulanmu" class="inputs" value="网站首页" title="单击修改信息"/></td>
-    <td width="330"><input type="text" name="url" class="inputs" value="index.php" title="单击修改信息"/></td>
-    </tr>
-  <tr>
-    <td><input type="button" name="btn" id="btn" class="btn" value="更新信息" /></td>
-    <td>2</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><input type="button" name="btn" id="btn" class="btn" value="更新信息" /></td>
-    <td>3</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    </tr---->
-</table>
+      ?>
 </form>
 
       </div><!---updatamenu---->

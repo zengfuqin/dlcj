@@ -21,34 +21,32 @@ include('./link.php');
   	<div class="menu" id="menu">
     <!----------------------->
     <div id="updata_menu"><!--管理菜单-->
+    <?php
+    include("../Api/ediMenuApi.php");
+    ?>
       	<div class="title">导航菜单---&gt;管理菜单</div>
-<form action="../Api/ediMenuApi.php?id=" method="post">    
+<form action="../Api/ediMenuApi.php?act=updata" method="post">    
 	<table width="803" border="0" cellspacing="0" cellpadding="0">	 
 		<tr>
+		  <td>操作</td>
 		  <td>菜单编号</td>
 		  <td>菜单名称</td>
 		  <td>链接地址</td>
 		  <td>父id</td>
 		</tr>
 		<?php
-		include("../Api/ediMenuApi.php");
 		$str='';
-		prinr_r($res);
 		$str.='<tr>
-			<td>'.$row['id'].'<input style="width:80px;" type="hidden" value="'.$row['id'].'" name="id"></td>
+			<td><input type="submit" name="editbtn" id="btn" class="btn" value="更新" /><a href="../Api/ediMenuApi.php?act=delete&id='.$row['id'].'">删除</a></td>
+			<td>'.$row['id'].'<input style="width:80px;" type="hidden" value="'.$row['id'].'" name="id" ></td>
 			<td><input style="width:80px;" type="text" value="'.$row['name'].'" name="name"></td>
 			<td><input style="width:80px;" type="text" value="'.$row['url'].'" name="url"></td>
-			<td>'.$row['fid'].'<input style="width:80px;" type="hidden" value="'.$row['fid'].'" name="fid"></td>
+			<td>'.$row['fid'].'<input style="width:80px;" type="hidden" value="'.$row['fid'].'" name="fid" ></td>
 			</tr>';
 		
 		echo $str;
 		?>
-		 <tr>
-		  <td><input type="submit" name="editbtn" id="btn" class="btn" value="保存信息" /></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		</tr>
+		
 	</table>
 </form>
       </div><!---updatamenu---->
